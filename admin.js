@@ -187,3 +187,38 @@ async function deleteEpisode(id) {
         alert('Ошибка при удалении серии');
     }
           }
+async function loadAnimeForManagement() {
+  try {
+    const response = await fetch('/api/anime');
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    
+    const animeList = await response.json();
+    const animeListElement = document.getElementById('anime-list-admin');
+    animeListElement.innerHTML = '';
+
+    animeList.forEach(anime => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span>${anime.title} (ID: ${anime.id})</span>
+        <button class="delete-btn" data-id="${anime.id}">Удалить</button>
+      `;
+      animeListElement.appendChild(li);
+    });
+
+    // Добавьте обработчики ошибок для всех кнопок
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', async function() {
+        try {
+          await deleteAnime(this.getAttribute('data-id'));
+        } catch (err) {
+          console.error('Delete error:', err);
+          alert('Ошибка при удалении: ' + err.message);
+        }
+      });
+    });
+
+  } catch (err) {
+    console.error('Failed to load anime:', err);
+    alert('Ошибка загрузки списка аниме. Попробуйте позже.');
+  }
+      }
