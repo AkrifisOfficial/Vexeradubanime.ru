@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VexeraDubbing - Аниме с озвучкой</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">VexeraDubbing</div>
+        <nav>
+            <a href="#" class="active">Главная</a>
+            <a href="#">Аниме</a>
+            <a href="#">Озвучки</a>
+            <a href="admin.html" class="admin-link">Админ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search">
+            <input type="text" placeholder="Поиск аниме..." id="search-input">
+            <button id="search-btn">Найти</button>
+        </section>
+
+        <section class="anime-list">
+            <h2>Популярные аниме</h2>
+            <div class="anime-grid" id="anime-grid">
+                <!-- Аниме будут загружаться здесь -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 VexeraDubbing. Все права защищены.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
