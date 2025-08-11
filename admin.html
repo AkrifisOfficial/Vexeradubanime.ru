@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель VexeraDubbing</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">VexeraDubbing Admin</div>
+        <nav>
+            <a href="index.html">На сайт</a>
+            <a href="#" class="active">Управление</a>
+            <a href="#" id="logout-btn">Выйти</a>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <section class="admin-panel">
+            <h2>Добавить новое аниме</h2>
+            <form id="add-anime-form">
+                <input type="text" placeholder="Название" required>
+                <input type="text" placeholder="Описание" required>
+                <input type="text" placeholder="Постер (URL)" required>
+                <button type="submit">Добавить</button>
+            </form>
+
+            <h2>Добавить серии</h2>
+            <form id="add-episodes-form">
+                <select id="anime-select" required>
+                    <option value="">Выберите аниме</option>
+                </select>
+                <input type="number" placeholder="Номер серии" required>
+                <input type="text" placeholder="Ссылка на VK Video" required>
+                <button type="submit">Добавить серию</button>
+            </form>
+
+            <h2>Управление контентом</h2>
+            <div class="content-management">
+                <div class="anime-management">
+                    <h3>Аниме</h3>
+                    <ul id="anime-list-admin">
+                        <!-- Список аниме для управления -->
+                    </ul>
+                </div>
+                <div class="episodes-management">
+                    <h3>Серии</h3>
+                    <ul id="episodes-list-admin">
+                        <!-- Список серий для управления -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
